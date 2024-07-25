@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Thermometer, Mountain, Clock, Ruler } from "lucide-react";
 
 const MarsFacts = [
@@ -54,35 +55,46 @@ const Index = () => {
         </Card>
       )}
 
-      <div className="grid gap-8 md:grid-cols-3">
-        <Card>
-          <CardHeader>
-            <CardTitle>Mars Overview</CardTitle>
-            <CardDescription>Key information about the Red Planet</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <p>Mars is a terrestrial planet with a thin atmosphere, having surface features reminiscent both of the impact craters of the Moon and the valleys, deserts, and polar ice caps of Earth. It is the site of Olympus Mons, the largest known volcano and highest known mountain in the Solar System, and of Valles Marineris, one of the largest canyons in the Solar System.</p>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader>
-            <CardTitle>Exploration of Mars</CardTitle>
-            <CardDescription>Missions and discoveries</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <p>Mars has been explored by several uncrewed spacecraft. Mariner 4 was the first spacecraft to visit Mars, making its closest approach in 1964. The first spacecraft to successfully land on Mars was Viking 1 in 1976. More recently, Mars rovers like Spirit, Opportunity, Curiosity, and Perseverance have significantly advanced our understanding of the planet. The latest missions include NASA's Perseverance rover and China's Tianwen-1 mission, both launched in 2020.</p>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader>
-            <CardTitle>Potential for Life on Mars</CardTitle>
-            <CardDescription>The search for past or present life</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <p>The possibility of life on Mars is a subject of significant interest to astrobiologists due to its proximity and similarities to Earth. To date, no proof has been found of past or present life on Mars. However, evidence has been found that suggests there was liquid water on the surface in ancient times, and the discovery of traces of methane in the atmosphere may indicate the presence of microbial life. Ongoing missions continue to search for biosignatures and habitable environments on the Red Planet.</p>
-          </CardContent>
-        </Card>
-      </div>
+      <Tabs defaultValue="overview" className="w-full">
+        <TabsList className="grid w-full grid-cols-3">
+          <TabsTrigger value="overview">Overview</TabsTrigger>
+          <TabsTrigger value="exploration">Exploration</TabsTrigger>
+          <TabsTrigger value="life">Potential for Life</TabsTrigger>
+        </TabsList>
+        <TabsContent value="overview">
+          <Card>
+            <CardHeader>
+              <CardTitle>Mars Overview</CardTitle>
+              <CardDescription>Key information about the Red Planet</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p>Mars is a terrestrial planet with a thin atmosphere, having surface features reminiscent both of the impact craters of the Moon and the valleys, deserts, and polar ice caps of Earth. It is the site of Olympus Mons, the largest known volcano and highest known mountain in the Solar System, and of Valles Marineris, one of the largest canyons in the Solar System.</p>
+            </CardContent>
+          </Card>
+        </TabsContent>
+        <TabsContent value="exploration">
+          <Card>
+            <CardHeader>
+              <CardTitle>Exploration of Mars</CardTitle>
+              <CardDescription>Missions and discoveries</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p>Mars has been explored by several uncrewed spacecraft. Mariner 4 was the first spacecraft to visit Mars, making its closest approach in 1964. The first spacecraft to successfully land on Mars was Viking 1 in 1976. More recently, Mars rovers like Spirit, Opportunity, Curiosity, and Perseverance have significantly advanced our understanding of the planet. The latest missions include NASA's Perseverance rover and China's Tianwen-1 mission, both launched in 2020.</p>
+            </CardContent>
+          </Card>
+        </TabsContent>
+        <TabsContent value="life">
+          <Card>
+            <CardHeader>
+              <CardTitle>Potential for Life on Mars</CardTitle>
+              <CardDescription>The search for past or present life</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p>The possibility of life on Mars is a subject of significant interest to astrobiologists due to its proximity and similarities to Earth. To date, no proof has been found of past or present life on Mars. However, evidence has been found that suggests there was liquid water on the surface in ancient times, and the discovery of traces of methane in the atmosphere may indicate the presence of microbial life. Ongoing missions continue to search for biosignatures and habitable environments on the Red Planet.</p>
+            </CardContent>
+          </Card>
+        </TabsContent>
+      </Tabs>
     </div>
   );
 };
