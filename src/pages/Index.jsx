@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Thermometer, Mountain, Clock, Ruler } from "lucide-react";
+import SpaceCanvas from '@/components/SpaceCanvas';
 
 const MarsFacts = [
   { icon: <Ruler className="h-4 w-4" />, title: "Diameter", content: "4,212 miles (6,779 km)" },
@@ -16,7 +17,8 @@ const Index = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold text-center mb-8">Discover Mars: The Red Planet</h1>
+      <SpaceCanvas />
+      <h1 className="text-4xl font-bold text-center mb-8 mt-4">Discover Mars: The Red Planet</h1>
       
       <div className="grid md:grid-cols-2 gap-8 mb-12">
         <div>
