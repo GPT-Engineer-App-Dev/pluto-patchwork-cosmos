@@ -2,13 +2,13 @@ import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Thermometer, Mountain, Clock, Ruler } from "lucide-react";
+import { Wind, Zap, Ruler, Scale } from "lucide-react";
 
-const MarsFacts = [
-  { icon: <Ruler className="h-4 w-4" />, title: "Diameter", content: "4,212 miles (6,779 km)" },
-  { icon: <Mountain className="h-4 w-4" />, title: "Highest Peak", content: "Olympus Mons (21.9 km)" },
-  { icon: <Thermometer className="h-4 w-4" />, title: "Avg. Temperature", content: "-63°C (-81°F)" },
-  { icon: <Clock className="h-4 w-4" />, title: "Day Length", content: "24 hours, 37 minutes" },
+const JupiterFacts = [
+  { icon: <Ruler className="h-4 w-4" />, title: "Diameter", content: "88,846 miles (142,984 km)" },
+  { icon: <Scale className="h-4 w-4" />, title: "Mass", content: "1.9 x 10^27 kg (318 Earths)" },
+  { icon: <Wind className="h-4 w-4" />, title: "Atmosphere", content: "Hydrogen and Helium" },
+  { icon: <Zap className="h-4 w-4" />, title: "Magnetic Field", content: "14 times stronger than Earth's" },
 ];
 
 const Index = () => {
@@ -16,16 +16,16 @@ const Index = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold text-center mb-8">Discover Mars: The Red Planet</h1>
+      <h1 className="text-4xl font-bold text-center mb-8">Discover Jupiter: The Giant Planet</h1>
       
       <div className="grid md:grid-cols-2 gap-8 mb-12">
         <div>
-          <img src="/placeholder.svg" alt="Mars" className="mx-auto object-cover w-full h-[400px] rounded-lg shadow-lg" />
+          <img src="/placeholder.svg" alt="Jupiter" className="mx-auto object-cover w-full h-[400px] rounded-lg shadow-lg" />
         </div>
         <div className="flex flex-col justify-center">
-          <h2 className="text-2xl font-semibold mb-4">The Fourth Planet from the Sun</h2>
+          <h2 className="text-2xl font-semibold mb-4">The Largest Planet in Our Solar System</h2>
           <p className="text-lg mb-4">
-            Mars, often called the Red Planet, is the fourth planet from the Sun in our solar system. It's known for its reddish appearance, thin atmosphere, and potential for harboring past or present microbial life.
+            Jupiter, the fifth planet from the Sun, is a gas giant and the largest planet in our solar system. It's known for its impressive size, powerful magnetic field, and the Great Red Spot, a giant storm that has been raging for centuries.
           </p>
           <Button onClick={() => setShowMore(!showMore)}>
             {showMore ? "Show Less" : "Learn More"}
@@ -36,12 +36,12 @@ const Index = () => {
       {showMore && (
         <Card className="mb-12">
           <CardHeader>
-            <CardTitle>Fascinating Mars Facts</CardTitle>
-            <CardDescription>Discover some intriguing details about the Red Planet</CardDescription>
+            <CardTitle>Fascinating Jupiter Facts</CardTitle>
+            <CardDescription>Discover some intriguing details about this gas giant</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {MarsFacts.map((fact, index) => (
+              {JupiterFacts.map((fact, index) => (
                 <div key={index} className="flex flex-col items-center text-center">
                   <div className="bg-primary text-primary-foreground rounded-full p-3 mb-2">
                     {fact.icon}
@@ -59,38 +59,38 @@ const Index = () => {
         <TabsList className="grid w-full grid-cols-3">
           <TabsTrigger value="overview">Overview</TabsTrigger>
           <TabsTrigger value="exploration">Exploration</TabsTrigger>
-          <TabsTrigger value="life">Potential for Life</TabsTrigger>
+          <TabsTrigger value="moons">Moons</TabsTrigger>
         </TabsList>
         <TabsContent value="overview">
           <Card>
             <CardHeader>
-              <CardTitle>Mars Overview</CardTitle>
-              <CardDescription>Key information about the Red Planet</CardDescription>
+              <CardTitle>Jupiter Overview</CardTitle>
+              <CardDescription>Key information about the gas giant</CardDescription>
             </CardHeader>
             <CardContent>
-              <p>Mars is a terrestrial planet with a thin atmosphere, having surface features reminiscent both of the impact craters of the Moon and the valleys, deserts, and polar ice caps of Earth. It is the site of Olympus Mons, the largest known volcano and highest known mountain in the Solar System, and of Valles Marineris, one of the largest canyons in the Solar System.</p>
+              <p>Jupiter is primarily composed of hydrogen and helium, similar to the Sun. It lacks a solid surface and is characterized by colorful bands and spots caused by strong winds in its upper atmosphere. The planet's rapid rotation (a day lasts only about 10 hours) creates strong jet streams, separating its clouds into dark belts and bright zones.</p>
             </CardContent>
           </Card>
         </TabsContent>
         <TabsContent value="exploration">
           <Card>
             <CardHeader>
-              <CardTitle>Exploration of Mars</CardTitle>
+              <CardTitle>Exploration of Jupiter</CardTitle>
               <CardDescription>Missions and discoveries</CardDescription>
             </CardHeader>
             <CardContent>
-              <p>Mars has been explored by several uncrewed spacecraft. Mariner 4 was the first spacecraft to visit Mars, making its closest approach in 1964. The first spacecraft to successfully land on Mars was Viking 1 in 1976. More recently, Mars rovers like Spirit, Opportunity, Curiosity, and Perseverance have significantly advanced our understanding of the planet. The latest missions include NASA's Perseverance rover and China's Tianwen-1 mission, both launched in 2020.</p>
+              <p>Several spacecraft have visited Jupiter, including Pioneer 10 and 11, Voyager 1 and 2, Ulysses, Cassini, New Horizons, and Juno. The Galileo mission, which arrived in 1995, dropped a probe into Jupiter's atmosphere and conducted extended observations of the planet and its moons. Currently, NASA's Juno spacecraft is orbiting Jupiter, providing new insights into the planet's composition, gravity field, magnetic field, and polar magnetosphere.</p>
             </CardContent>
           </Card>
         </TabsContent>
-        <TabsContent value="life">
+        <TabsContent value="moons">
           <Card>
             <CardHeader>
-              <CardTitle>Potential for Life on Mars</CardTitle>
-              <CardDescription>The search for past or present life</CardDescription>
+              <CardTitle>Jupiter's Moons</CardTitle>
+              <CardDescription>The satellites orbiting Jupiter</CardDescription>
             </CardHeader>
             <CardContent>
-              <p>The possibility of life on Mars is a subject of significant interest to astrobiologists due to its proximity and similarities to Earth. To date, no proof has been found of past or present life on Mars. However, evidence has been found that suggests there was liquid water on the surface in ancient times, and the discovery of traces of methane in the atmosphere may indicate the presence of microbial life. Ongoing missions continue to search for biosignatures and habitable environments on the Red Planet.</p>
+              <p>Jupiter has a vast system of moons, with 79 known satellites. The four largest moons, known as the Galilean moons, are Io, Europa, Ganymede, and Callisto. Io is the most volcanically active body in the solar system, Europa may have an ocean beneath its icy surface, Ganymede is the largest moon in the solar system, and Callisto is heavily cratered. These moons are each unique worlds with fascinating characteristics that continue to intrigue scientists.</p>
             </CardContent>
           </Card>
         </TabsContent>
